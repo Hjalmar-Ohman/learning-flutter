@@ -15,6 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  var _totalScore = 0;
 
   void _answerQuestion() {
     setState(() {
@@ -27,15 +28,30 @@ class _MyAppState extends State<MyApp> {
     var _questions = [
       {
         'questionText': 'Whats your favorite horse',
-        'answers': ['first', 'I\'m not sure', 'what?', 'Stallion'],
+        'answers': [
+          {'text': 'first', 'score': 10},
+          {'text': 'I\'m not sure', 'score': 10},
+          {'text': 'what?', 'score': 10},
+          {'text': 'Stallion', 'score': 10},
+        ],
       },
       {
         'questionText': 'Whats your hose',
-        'answers': ['diamonds', 'black', 'green', 'bluu'],
+        'answers': [
+          {'text': 'diamonds', 'score': 7},
+          {'text': 'black', 'score': 3},
+          {'text': 'green', 'score': 1},
+          {'text': 'bluu', 'score': 9},
+        ],
       },
       {
         'questionText': 'Favorite sport?',
-        'answers': ['Tennis', 'Football', 'Badminton', 'NONE'],
+        'answers': [
+          {'text': 'Tennis', 'score': 3},
+          {'text': 'Football', 'score': 5},
+          {'text': 'Badminton', 'score': 3},
+          {'text': 'NONE', 'score': 0},
+        ],
       },
     ];
     return MaterialApp(
