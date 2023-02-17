@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:guide/answer.dart';
 
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,26 +24,32 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      "Whats your favorite horse",
-      "Whats your hose",
+    var _questions = [
+      {
+        'questionText': 'Whats your favorite horse',
+        'answers': ['first', 'I\'m not sure', 'what?', 'Stallion'],
+      },
+      {
+        'questionText': 'Whats your hose',
+        'answers': ['diamonds', 'black', 'green', 'bluu'],
+      },
+      {
+        'questionText': 'Favorite sport?',
+        'answers': ['Tennis', 'Football', 'Badminton', 'NONE'],
+      },
     ];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: const Text("My First App!"),
         ),
-        body: Column(
-          children: <Widget>[
-            Question(
-              questions[_questionIndex],
-            ),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-          ],
-        ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
+              )
+            : Result(),
       ),
     );
   }
